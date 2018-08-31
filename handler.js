@@ -49,8 +49,8 @@ function queryStringToJSON(data) {
   return JSON.parse(JSON.stringify(result));
 }
 
-async function respondToUser(response){
-  const finalResponse = response.length ? response : 'No Result'
+async function respondToUser(queryParameter, response){
+  const finalResponse = response.length ? `${queryParameter}\n\n${response}` : 'No Result'
   return client.messages 
       .create({ 
          body: typeof finalResponse === 'string' ? finalResponse : finalResponse.join('\n'), 
