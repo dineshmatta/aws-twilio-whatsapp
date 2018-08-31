@@ -1,0 +1,13 @@
+service: twilio-whatsapp-integration
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+
+functions:
+  twilioChat:
+    handler: handler.callback
+    events:
+      - http:
+          path: /
+          method: post
